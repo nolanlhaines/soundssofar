@@ -1,4 +1,19 @@
-<!DOCTYPE html>
+---
+import "../styles/global.css";
+import routes from "../data/routes.json";
+
+interface Stop {
+  when: string;
+  place: string;
+  description: string;
+  type: "festival" | "scouting";
+  tbd: boolean;
+}
+
+const stops = routes as Stop[];
+---
+
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -8,7 +23,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <header class="hero">
@@ -54,7 +68,15 @@
     <h2>The route</h2>
     <p class="lead">Seven months on the road, starting at South by Southwest and ending back in Austin.</p>
     <div class="legend"><span class="f">Festival stop</span><span>Finding artists and open mics</span></div>
-    <ol class="route" id="stops"></ol>
+    <ol class="route">
+      {stops.map((stop) => (
+        <li class={`stop${stop.type === "festival" ? " f" : ""}`}>
+          <div class="when">{stop.when}</div>
+          <h3>{stop.place}{stop.tbd && <span class="tag">Dates to be announced</span>}</h3>
+          <p>{stop.description}</p>
+        </li>
+      ))}
+    </ol>
     <p class="note">Dates marked &ldquo;to be announced&rdquo; are waiting on festival organizers. The route will update as they are.</p>
   </div>
 </section>
@@ -165,7 +187,6 @@
   <div class="wrap">© Nolan Haines. Sounds So Far, 2027.</div>
 </footer>
 
-<script src="js/route.js"></script>
-<script src="js/apply-form.js"></script>
+<script src="../scripts/apply-form.js"></script>
 </body>
 </html>
