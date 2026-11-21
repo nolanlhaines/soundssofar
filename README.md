@@ -5,10 +5,16 @@ One-page site for Nolan Haines' 2027 tour, built with [Astro](https://astro.buil
 ## Structure
 
 - `src/pages/index.astro` — the page. Route stops are rendered at build time
-  from `src/data/routes.json`, no client-side fetch involved.
+  from `src/data/routes.json`, no client-side fetch involved. The
+  application form submits to [Netlify
+  Forms](https://docs.netlify.com/forms/setup/) (`data-netlify="true"`,
+  honeypot via `netlify-honeypot`) and redirects to `/thanks` on success.
+- `src/pages/thanks.astro` — the page artists land on after submitting.
 - `src/styles/global.css` — all styling.
-- `src/scripts/apply-form.js` — artist application form validation and the
-  honeypot spam check. No submission backend is wired in yet (see `TODO.md`).
+- `src/scripts/apply-form.js` — client-side validation and the honeypot
+  check. Only blocks submission on invalid input or spam; a valid submission
+  is left to the browser's native POST so file uploads work.
+- `netlify.toml` — build command and publish directory for Netlify.
 - `src/data/routes.json` — tour stops. Edit this file to change dates or add
   stops; no code changes needed.
 - `src/assets/` — images that go through Astro's image pipeline (currently

@@ -86,7 +86,18 @@ const stops = routes as Stop[];
     <h2>Are you an artist?</h2>
     <p class="lead">Tell us where you are and what you play. If the trailer is coming near you, we want to hear from you. If it&rsquo;s not, the open mic is always there.</p>
     <p class="lead">When you play the trailer, you get a live set, a podcast conversation and your favorite drink. Tell us what it is on the form. Not drinking, or under 21? We&rsquo;ll make you something just as good without the alcohol.</p>
-    <form id="apply" class="apply" novalidate aria-labelledby="apply-title" enctype="multipart/form-data">
+    <form
+      id="apply"
+      name="apply"
+      method="POST"
+      enctype="multipart/form-data"
+      data-netlify="true"
+      netlify-honeypot="_gotcha"
+      action="/thanks"
+      class="apply"
+      novalidate
+      aria-labelledby="apply-title"
+    >
       <h3 id="apply-title" class="apply-title">Artist application</h3>
       <p class="hint">It takes about ten minutes. Fields marked <span class="req">*</span> are required. All ages and all genres are welcome.</p>
       <div id="apply-errors" class="errsum" role="alert" tabindex="-1" hidden></div>
@@ -143,7 +154,7 @@ const stops = routes as Stop[];
         <div class="field">
           <label for="f-file">Or upload a recording</label>
           <input id="f-file" name="Recording" type="file" accept="audio/*,video/*" multiple>
-          <p class="hint">If links are easier, skip this. Audio or video files, up to 50MB each, 3 files max.</p>
+          <p class="hint">If links are easier, skip this. Audio or video files, up to 10MB each, 3 files max.</p>
         </div>
       </fieldset>
 
@@ -174,7 +185,6 @@ const stops = routes as Stop[];
         </div>
         <div class="actions">
           <button class="btn" type="submit">Send application</button>
-          <button class="btn ghost" type="button" id="apply-copy">Copy my answers</button>
         </div>
         <div id="apply-status" class="status" role="status" hidden></div>
       </fieldset>

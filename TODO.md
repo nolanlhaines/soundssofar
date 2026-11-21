@@ -3,11 +3,10 @@
 Things only Nolan can decide or provide. Nothing here should ever be copied
 into index.html or the public page.
 
-- **Contact email.** `src/scripts/apply-form.js` still uses the placeholder
-  `hello@nolanhaines.com` as the fallback address shown in the form. Replace
-  `FALLBACK_EMAIL` once the real address is set, and use the same address for
-  the "send me an email notification" requirement once the form backend is
-  wired up.
+- **Contact email for notifications.** Once the Netlify site exists, add the
+  real address under Site settings → Forms → Form notifications → Email
+  notification. There's no address hardcoded in the app anymore — it's a
+  dashboard setting, not code.
 - **Agreement checkbox wording.** The text in the "Making it happen" fieldset
   of `src/pages/index.astro` is the plain-language draft from the reference
   file. Flagged for legal/wording review before launch.
@@ -29,9 +28,24 @@ into index.html or the public page.
 
 # Still to decide together (not blockers, just sequencing)
 
-- Stack confirmed: Astro, deployed to Netlify. Kit (ConvertKit) comes last,
-  after the site is built — its exact role (artist-notification email vs.
-  fan/follow-along signups) still needs to be pinned down when we get there.
-- Form backend / file storage / email notifications for the application
-  form — likely Netlify Forms, to be wired in once Netlify is connected.
+- Stack confirmed: Astro, deployed to Netlify, with Netlify Forms as the
+  application-form backend. Kit (ConvertKit) is for the newsletter, wired up
+  last, after the site is built and live.
+- **File size limit.** `MAX_FILE_BYTES` in `src/scripts/apply-form.js` is set
+  to a conservative 10MB per file as a placeholder — Netlify changed its
+  Forms pricing/limits in a way I can't fully verify from here. Check the
+  real number on the connected Netlify account's actual plan (Site settings →
+  Forms, or the billing page) and adjust that one constant, plus the hint
+  text next to the file input in `src/pages/index.astro`, to match.
+- **Netlify setup steps once the account exists** (can't do these without
+  Nolan's Netlify login):
+  1. Connect the GitHub repo in the Netlify dashboard (build command and
+     publish directory are already in `netlify.toml`, so it should
+     auto-detect).
+  2. After the first deploy, go to Site settings → Forms and turn on form
+     detection if it isn't already (Netlify scans the built static HTML for
+     the `apply` form and should pick it up automatically).
+  3. Add a real notification email under Forms → Form notifications.
+  4. Submit a real test application once live and confirm it shows up in
+     the Netlify dashboard and the notification email arrives.
 - Connecting the domain once chosen.
