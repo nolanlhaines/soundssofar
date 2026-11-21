@@ -4,6 +4,8 @@ import Layout from "../layouts/Layout.astro";
 import kingbee from "../assets/gallery-kingbee.jpg";
 import bartonSprings from "../assets/gallery-barton-springs.jpg";
 import sunset from "../assets/gallery-sunset.jpg";
+import recordShop from "../assets/gallery-record-shop.jpg";
+import sign from "../assets/gallery-sign.jpg";
 
 // TODO: placeholder address, see TODO.md
 const CONTACT_EMAIL = "hello@nolanhaines.com";
@@ -26,10 +28,12 @@ const CONTACT_EMAIL = "hello@nolanhaines.com";
   <div class="wrap">
     <h2>Follow along</h2>
     <p class="lead">Links to follow the tour, watch live sets and listen to the podcast are coming soon.</p>
-    <div class="photo-grid">
-      <Image src={kingbee} alt="A live band performing at King Bee" width={500} />
-      <Image src={bartonSprings} alt="Swimmers at Barton Springs in Austin" width={500} />
-      <Image src={sunset} alt="A glowing sunset cloud over a vineyard" width={500} />
+    <div class="photo-strip">
+      <Image src={kingbee} alt="A live band performing at King Bee" height={400} width={300} />
+      <Image src={recordShop} alt="A DJ booth beside a wall of records" height={400} width={300} />
+      <Image src={bartonSprings} alt="Swimmers at Barton Springs in Austin" height={400} width={300} />
+      <Image src={sign} alt="Nolan holding up a railroad crossing sign" height={400} width={300} />
+      <Image src={sunset} alt="A glowing sunset cloud over a vineyard" height={400} width={225} />
     </div>
   </div>
 </section>

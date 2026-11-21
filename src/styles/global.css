@@ -239,25 +239,20 @@ h2 {
   border-radius: 6px;
 }
 
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.photo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
   margin-top: 28px;
 }
 
-.photo-grid img {
+.photo-strip img {
   display: block;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  height: clamp(140px, 32vw, 320px);
+  width: auto;
+  max-width: 100%;
   border-radius: 6px;
-}
-
-@media (max-width: 600px) {
-  .photo-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 760px) {
