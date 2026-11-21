@@ -1,0 +1,122 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Artist application | Sounds So Far"
+  description="Apply to play Sounds So Far: a live set, a podcast conversation, and your favorite drink."
+>
+<main>
+<section class="alt">
+  <div class="wrap">
+    <h2>Are you an artist?</h2>
+    <p class="lead">Tell us where you are and what you play. If the trailer is coming near you, we want to hear from you. If it&rsquo;s not, the open mic is always there.</p>
+    <p class="lead">When you play the trailer, you get a live set, a podcast conversation and your favorite drink. Tell us what it is on the form. Not drinking, or under 21? We&rsquo;ll make you something just as good without the alcohol.</p>
+    <form
+      id="apply"
+      name="apply"
+      method="POST"
+      enctype="multipart/form-data"
+      data-netlify="true"
+      netlify-honeypot="_gotcha"
+      action="/thanks"
+      class="apply"
+      novalidate
+      aria-labelledby="apply-title"
+    >
+      <h3 id="apply-title" class="apply-title">Artist application</h3>
+      <p class="hint">It takes about ten minutes. Fields marked <span class="req">*</span> are required. All ages and all genres are welcome.</p>
+      <div id="apply-errors" class="errsum" role="alert" tabindex="-1" hidden></div>
+
+      <!-- Honeypot: hidden from sighted users and screen readers; real visitors never fill this in. -->
+      <div class="field visually-hidden" aria-hidden="true">
+        <label for="f-hp">Leave this field blank</label>
+        <input id="f-hp" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <fieldset>
+        <legend>About you</legend>
+        <div class="two">
+          <div class="field"><label for="f-name">Your name <span class="req">*</span></label><input id="f-name" name="Name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-act">Stage or band name</label><input id="f-act" name="Stage or band name" type="text"></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="f-email">Email <span class="req">*</span></label><input id="f-email" name="Email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="Phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="f-town">Hometown <span class="req">*</span></label><input id="f-town" name="Hometown" type="text" placeholder="City, state" required></div>
+          <div class="field"><label for="f-social">Instagram or website</label><input id="f-social" name="Instagram or website" type="url" placeholder="https://"></div>
+        </div>
+        <div class="field">
+          <label for="f-age">Age group <span class="req">*</span></label>
+          <select id="f-age" name="Age group" required>
+            <option value="">Choose one</option>
+            <option>Under 18</option>
+            <option>18 to 20</option>
+            <option>21 or older</option>
+          </select>
+        </div>
+        <div id="guardian" hidden>
+          <p class="hint">Artists under 18 need a parent or guardian to say yes.</p>
+          <div class="two">
+            <div class="field"><label for="f-gname">Parent or guardian name <span class="req">*</span></label><input id="f-gname" name="Parent or guardian name" type="text"></div>
+            <div class="field"><label for="f-gemail">Parent or guardian email <span class="req">*</span></label><input id="f-gemail" name="Parent or guardian email" type="email"></div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your music</legend>
+        <div class="two">
+          <div class="field"><label for="f-genre">Genre or style <span class="req">*</span></label><input id="f-genre" name="Genre or style" type="text" required></div>
+          <div class="field"><label for="f-size">How many people perform with you? <span class="req">*</span></label><input id="f-size" name="Number of performers" type="text" placeholder="Just me, or a number" required></div>
+        </div>
+        <div class="field"><label for="f-gear">Instruments you play and anything you need us to provide</label><input id="f-gear" name="Instruments and gear" type="text"></div>
+        <p class="hint">Share links we can open from SoundCloud, Spotify, YouTube, Bandcamp, Google Drive or Dropbox. If a link is private, make sure it can be opened by anyone who has it.</p>
+        <div class="field"><label for="f-s1">Link to your best song <span class="req">*</span></label><input id="f-s1" name="Best song link" type="url" placeholder="https://" required></div>
+        <div class="field"><label for="f-s2">Link to a second song</label><input id="f-s2" name="Second song link" type="url" placeholder="https://"></div>
+        <div class="field"><label for="f-s3">Link to a live video, if you have one</label><input id="f-s3" name="Live video link" type="url" placeholder="https://"></div>
+        <div class="field">
+          <label for="f-file">Or upload a recording</label>
+          <input id="f-file" name="Recording" type="file" accept="audio/*,video/*" multiple>
+          <p class="hint">If links are easier, skip this. Audio or video files, up to 10MB each, 3 files max.</p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your story</legend>
+        <div class="field"><label for="f-about">Tell us about yourself <span class="req">*</span></label><textarea id="f-about" name="About the artist" required></textarea><p class="hint">Who you are, how you got started and what your music is about. A few sentences is plenty.</p></div>
+        <div class="field"><label for="f-home">What should people know about where you&rsquo;re from?</label><textarea id="f-home" name="About their hometown"></textarea><p class="hint">We want to show off your town. Tell us about the places, people and sounds that shaped you.</p></div>
+        <div class="field"><label for="f-drink">Your favorite cocktail, or a non-alcoholic favorite</label><input id="f-drink" name="Favorite drink" type="text"></div>
+        <div class="field"><label for="f-bar">Favorite bartender, if you have one</label><input id="f-bar" name="Favorite bartender" type="text" placeholder="Name and where they work"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Making it happen</legend>
+        <div class="field"><label for="f-where">Where will you be between March and October 2027? <span class="req">*</span></label><textarea id="f-where" name="Where they will be" required></textarea><p class="hint">Cities and rough dates. See <a href="/route">the route</a>.</p></div>
+        <div class="field">
+          <label for="f-type">What would you like to do? <span class="req">*</span></label>
+          <select id="f-type" name="Session type" required>
+            <option value="">Choose one</option>
+            <option>A booked session on the trailer</option>
+            <option>The open mic</option>
+            <option>Either one</option>
+          </select>
+        </div>
+        <!-- TODO: agreement wording is a plain-language draft, flagged for review. See TODO.md. -->
+        <div class="check">
+          <input id="f-ok" name="Agreement" type="checkbox" value="Yes" required>
+          <label for="f-ok">I agree that Nolan Haines and Sounds So Far can record my set and interview, and post them live and afterward on video platforms and the podcast. I keep ownership of my music. <span class="req">*</span></label>
+        </div>
+        <div class="actions">
+          <button class="btn" type="submit">Send application</button>
+        </div>
+        <div id="apply-status" class="status" role="status" hidden></div>
+      </fieldset>
+    </form>
+  </div>
+</section>
+</main>
+<script src="../scripts/apply-form.js"></script>
+</Layout>

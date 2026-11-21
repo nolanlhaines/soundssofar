@@ -1,14 +1,21 @@
 # Sounds So Far
 
-One-page site for Nolan Haines' 2027 tour, built with [Astro](https://astro.build).
+Site for Nolan Haines' 2027 tour, built with [Astro](https://astro.build).
+Multiple pages sharing one nav header and footer (`src/layouts/Layout.astro`).
 
 ## Structure
 
-- `src/pages/index.astro` — the page. Route stops are rendered at build time
-  from `src/data/routes.json`, no client-side fetch involved. The
-  application form submits to [Netlify
+- `src/layouts/Layout.astro` — shared head (meta/favicon/OG tags), nav
+  header, and footer. Every page wraps its content in this.
+- `src/pages/index.astro` — home: hero + "A stage that comes to you".
+- `src/pages/meet-nolan.astro` — Nolan's bio and quote.
+- `src/pages/route.astro` — the tour route, rendered at build time from
+  `src/data/routes.json`, no client-side fetch involved.
+- `src/pages/apply.astro` — the artist application. Submits to [Netlify
   Forms](https://docs.netlify.com/forms/setup/) (`data-netlify="true"`,
   honeypot via `netlify-honeypot`) and redirects to `/thanks` on success.
+- `src/pages/contact.astro` — general contact email and a "follow along"
+  area (social/stream/podcast links pending, see `TODO.md`).
 - `src/pages/thanks.astro` — the page artists land on after submitting.
 - `src/styles/global.css` — all styling.
 - `src/scripts/apply-form.js` — client-side validation and the honeypot

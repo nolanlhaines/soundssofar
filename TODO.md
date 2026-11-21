@@ -1,28 +1,28 @@
 # Open items (not shown on the public site)
 
 Things only Nolan can decide or provide. Nothing here should ever be copied
-into index.html or the public page.
+into the public pages.
 
 - **Contact email for notifications.** Once the Netlify site exists, add the
   real address under Site settings → Forms → Form notifications → Email
   notification. There's no address hardcoded in the app anymore — it's a
   dashboard setting, not code.
 - **Agreement checkbox wording.** The text in the "Making it happen" fieldset
-  of `src/pages/index.astro` is the plain-language draft from the reference
+  of `src/pages/apply.astro` is the plain-language draft from the reference
   file. Flagged for legal/wording review before launch.
-- **Photo.** `src/pages/index.astro` currently shows a dashed placeholder box
-  in the "Meet Nolan" section instead of a photo. Drop the real image in
-  `src/assets/` (matching the old `nolan.jpg`, roughly 900x1125), swap the
-  `.photo-placeholder` div for Astro's `<Image>` component (`astro:assets`)
-  so it gets optimized automatically.
-- **Follow-along links.** Social, stream and podcast links aren't on the page
-  yet. Once they exist, add a small "Follow along" area — ask before adding
-  it, since it's a new section.
+- **Photo.** `src/pages/meet-nolan.astro` currently shows a dashed placeholder
+  box instead of a photo. Drop the real image in `src/assets/` (matching the
+  old `nolan.jpg`, roughly 900x1125), swap the `.photo-placeholder` div for
+  Astro's `<Image>` component (`astro:assets`) so it gets optimized
+  automatically.
+- **Follow-along links.** `src/pages/contact.astro` has a "Follow along"
+  section but no actual links yet — social, stream and podcast links aren't
+  decided. Add them there once they exist.
 - **Domain name.** Needed before we can connect hosting to a real URL. Also,
   once it's set, add `site: "https://<domain>"` to `astro.config.mjs` and
-  switch the `og:image`/`twitter:image` tags in `src/pages/index.astro` from
-  relative paths to absolute URLs — some platforms that preview shared links
-  want an absolute image URL.
+  switch the `og:image`/`twitter:image` tags in `src/layouts/Layout.astro`
+  from relative paths to absolute URLs — some platforms that preview shared
+  links want an absolute image URL.
 - **Route data judgment call:** the mid-August Wyoming stop is listed in
   `data/routes.json` as `"Jackson, WY / Grand Targhee"` with `"type":
   "festival"` and `"tbd": true`, grouping it with Under the Big Sky and ACL
@@ -40,7 +40,7 @@ into index.html or the public page.
   Forms pricing/limits in a way I can't fully verify from here. Check the
   real number on the connected Netlify account's actual plan (Site settings →
   Forms, or the billing page) and adjust that one constant, plus the hint
-  text next to the file input in `src/pages/index.astro`, to match.
+  text next to the file input in `src/pages/apply.astro`, to match.
 - **Netlify setup steps once the account exists** (can't do these without
   Nolan's Netlify login):
   1. Connect the GitHub repo in the Netlify dashboard (build command and

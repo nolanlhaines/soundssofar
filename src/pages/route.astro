@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import routes from "../data/routes.json";
+
+interface Stop {
+  when: string;
+  place: string;
+  description: string;
+  type: "festival" | "scouting";
+  tbd: boolean;
+}
+
+const stops = routes as Stop[];
+---
+
+<Layout
+  title="The Route | Sounds So Far"
+  description="Seven months on the road, starting at South by Southwest and ending back in Austin."
+>
+<main>
+<section>
+  <div class="wrap">
+    <h2>The route</h2>
+    <p class="lead">Seven months on the road, starting at South by Southwest and ending back in Austin.</p>
+    <div class="legend"><span class="f">Festival stop</span><span>Finding artists and open mics</span></div>
+    <ol class="route">
+      {stops.map((stop) => (
+        <li class={`stop${stop.type === "festival" ? " f" : ""}`}>
+          <div class="when">{stop.when}</div>
+          <h3>{stop.place}{stop.tbd && <span class="tag">Dates to be announced</span>}</h3>
+          <p>{stop.description}</p>
+        </li>
+      ))}
+    </ol>
+    <p class="note">Dates marked &ldquo;to be announced&rdquo; are waiting on festival organizers. The route will update as they are.</p>
+  </div>
+</section>
+</main>
+</Layout>

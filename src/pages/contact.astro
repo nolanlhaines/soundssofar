@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// TODO: placeholder address, see TODO.md
+const CONTACT_EMAIL = "hello@nolanhaines.com";
+---
+
+<Layout
+  title="Contact | Sounds So Far"
+  description="Get in touch with Sounds So Far, and follow the tour."
+>
+<main>
+<section>
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p class="lead">Artists should use the <a href="/apply">artist application</a> instead — this is for press, festivals, and everyone else.</p>
+    <p class="lead"><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Follow along</h2>
+    <p class="lead">Links to follow the tour, watch live sets and listen to the podcast are coming soon.</p>
+  </div>
+</section>
+</main>
+</Layout>

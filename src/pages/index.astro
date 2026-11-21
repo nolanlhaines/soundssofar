@@ -1,50 +1,20 @@
 ---
 import { Image } from "astro:assets";
-import "../styles/global.css";
-import routes from "../data/routes.json";
+import Layout from "../layouts/Layout.astro";
 import logo from "../assets/logo.webp";
-
-interface Stop {
-  when: string;
-  place: string;
-  description: string;
-  type: "festival" | "scouting";
-  tbd: boolean;
-}
-
-const stops = routes as Stop[];
 ---
 
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sounds So Far | Nolan Haines</title>
-<meta name="description" content="Sounds So Far: a racecar trailer rebuilt as a traveling studio and stage, touring Austin to Austin, March to October 2027.">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sounds So Far | Nolan Haines">
-<meta property="og:description" content="A racecar trailer rebuilt as a traveling studio and stage, touring Austin to Austin, March to October 2027.">
-<meta property="og:image" content="/og-image.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sounds So Far | Nolan Haines">
-<meta name="twitter:description" content="A racecar trailer rebuilt as a traveling studio and stage, touring Austin to Austin, March to October 2027.">
-<meta name="twitter:image" content="/og-image.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+<Layout
+  title="Sounds So Far | Nolan Haines"
+  description="Sounds So Far: a racecar trailer rebuilt as a traveling studio and stage, touring Austin to Austin, March to October 2027."
+>
 <header class="hero">
   <div class="wrap">
     <Image src={logo} alt="Sounds So Far Music Studio" width={88} height={88} class="logo" loading="eager" />
     <p class="by">Nolan Haines presents</p>
     <h1>Sounds So Far</h1>
     <p>A racecar trailer turned studio, rolling from Austin to Austin, March to October 2027. It stops for festivals and finds up-and-coming artists in every town. Each one plays a live set, sits down for a podcast conversation, and gets their favorite cocktail.</p>
-    <a class="btn" href="#artists">Play on the trailer</a>
+    <a class="btn" href="/apply">Play on the trailer</a>
   </div>
 </header>
 
@@ -60,157 +30,5 @@ const stops = routes as Stop[];
     </div>
   </div>
 </section>
-
-<section class="alt" id="founder">
-  <div class="wrap founder">
-    <figure>
-      <!-- TODO: swap in the real photo. See TODO.md. -->
-      <div class="photo-placeholder" role="img" aria-label="Photo of Nolan Haines with the trailer — coming soon">Photo coming soon</div>
-    </figure>
-    <div>
-    <h2>Meet Nolan</h2>
-    <p class="lead">I&rsquo;m Nolan Haines, from Santa Cruz, California. Music has been in my life as long as I can remember. I sang in jazz choir and concert choir, and my grandparents are jazz musicians.</p>
-    <p class="lead">The idea came on a slow night working at a bar in Austin, Texas. A coworker and I were workshopping ideas, and one thing led to another: what if the studio came to up-and-coming artists, instead of them coming to us?</p>
-    <p class="lead">So Sounds So Far is a racecar trailer rebuilt as a studio, with living quarters attached. A garage door on the side slides up and becomes a little stage, so friends and neighbors can gather outside to watch. Each artist tells their back story, plays their best songs, and shows off the town they&rsquo;re from.</p>
-    <blockquote class="quote">&ldquo;The world is craving authenticity and genuine creativity in the age of digital and AI. I hope to bring a grounded, down-to-earth concept to fruition in order to bring that thirst for life we all crave.&rdquo;<cite>Nolan Haines</cite></blockquote>
-    </div>
-  </div>
-</section>
-
-<section id="route">
-  <div class="wrap">
-    <h2>The route</h2>
-    <p class="lead">Seven months on the road, starting at South by Southwest and ending back in Austin.</p>
-    <div class="legend"><span class="f">Festival stop</span><span>Finding artists and open mics</span></div>
-    <ol class="route">
-      {stops.map((stop) => (
-        <li class={`stop${stop.type === "festival" ? " f" : ""}`}>
-          <div class="when">{stop.when}</div>
-          <h3>{stop.place}{stop.tbd && <span class="tag">Dates to be announced</span>}</h3>
-          <p>{stop.description}</p>
-        </li>
-      ))}
-    </ol>
-    <p class="note">Dates marked &ldquo;to be announced&rdquo; are waiting on festival organizers. The route will update as they are.</p>
-  </div>
-</section>
-
-<section class="alt" id="artists">
-  <div class="wrap">
-    <h2>Are you an artist?</h2>
-    <p class="lead">Tell us where you are and what you play. If the trailer is coming near you, we want to hear from you. If it&rsquo;s not, the open mic is always there.</p>
-    <p class="lead">When you play the trailer, you get a live set, a podcast conversation and your favorite drink. Tell us what it is on the form. Not drinking, or under 21? We&rsquo;ll make you something just as good without the alcohol.</p>
-    <form
-      id="apply"
-      name="apply"
-      method="POST"
-      enctype="multipart/form-data"
-      data-netlify="true"
-      netlify-honeypot="_gotcha"
-      action="/thanks"
-      class="apply"
-      novalidate
-      aria-labelledby="apply-title"
-    >
-      <h3 id="apply-title" class="apply-title">Artist application</h3>
-      <p class="hint">It takes about ten minutes. Fields marked <span class="req">*</span> are required. All ages and all genres are welcome.</p>
-      <div id="apply-errors" class="errsum" role="alert" tabindex="-1" hidden></div>
-
-      <!-- Honeypot: hidden from sighted users and screen readers; real visitors never fill this in. -->
-      <div class="field visually-hidden" aria-hidden="true">
-        <label for="f-hp">Leave this field blank</label>
-        <input id="f-hp" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
-      </div>
-
-      <fieldset>
-        <legend>About you</legend>
-        <div class="two">
-          <div class="field"><label for="f-name">Your name <span class="req">*</span></label><input id="f-name" name="Name" type="text" autocomplete="name" required></div>
-          <div class="field"><label for="f-act">Stage or band name</label><input id="f-act" name="Stage or band name" type="text"></div>
-        </div>
-        <div class="two">
-          <div class="field"><label for="f-email">Email <span class="req">*</span></label><input id="f-email" name="Email" type="email" autocomplete="email" required></div>
-          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="Phone" type="tel" autocomplete="tel"></div>
-        </div>
-        <div class="two">
-          <div class="field"><label for="f-town">Hometown <span class="req">*</span></label><input id="f-town" name="Hometown" type="text" placeholder="City, state" required></div>
-          <div class="field"><label for="f-social">Instagram or website</label><input id="f-social" name="Instagram or website" type="url" placeholder="https://"></div>
-        </div>
-        <div class="field">
-          <label for="f-age">Age group <span class="req">*</span></label>
-          <select id="f-age" name="Age group" required>
-            <option value="">Choose one</option>
-            <option>Under 18</option>
-            <option>18 to 20</option>
-            <option>21 or older</option>
-          </select>
-        </div>
-        <div id="guardian" hidden>
-          <p class="hint">Artists under 18 need a parent or guardian to say yes.</p>
-          <div class="two">
-            <div class="field"><label for="f-gname">Parent or guardian name <span class="req">*</span></label><input id="f-gname" name="Parent or guardian name" type="text"></div>
-            <div class="field"><label for="f-gemail">Parent or guardian email <span class="req">*</span></label><input id="f-gemail" name="Parent or guardian email" type="email"></div>
-          </div>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Your music</legend>
-        <div class="two">
-          <div class="field"><label for="f-genre">Genre or style <span class="req">*</span></label><input id="f-genre" name="Genre or style" type="text" required></div>
-          <div class="field"><label for="f-size">How many people perform with you? <span class="req">*</span></label><input id="f-size" name="Number of performers" type="text" placeholder="Just me, or a number" required></div>
-        </div>
-        <div class="field"><label for="f-gear">Instruments you play and anything you need us to provide</label><input id="f-gear" name="Instruments and gear" type="text"></div>
-        <p class="hint">Share links we can open from SoundCloud, Spotify, YouTube, Bandcamp, Google Drive or Dropbox. If a link is private, make sure it can be opened by anyone who has it.</p>
-        <div class="field"><label for="f-s1">Link to your best song <span class="req">*</span></label><input id="f-s1" name="Best song link" type="url" placeholder="https://" required></div>
-        <div class="field"><label for="f-s2">Link to a second song</label><input id="f-s2" name="Second song link" type="url" placeholder="https://"></div>
-        <div class="field"><label for="f-s3">Link to a live video, if you have one</label><input id="f-s3" name="Live video link" type="url" placeholder="https://"></div>
-        <div class="field">
-          <label for="f-file">Or upload a recording</label>
-          <input id="f-file" name="Recording" type="file" accept="audio/*,video/*" multiple>
-          <p class="hint">If links are easier, skip this. Audio or video files, up to 10MB each, 3 files max.</p>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Your story</legend>
-        <div class="field"><label for="f-about">Tell us about yourself <span class="req">*</span></label><textarea id="f-about" name="About the artist" required></textarea><p class="hint">Who you are, how you got started and what your music is about. A few sentences is plenty.</p></div>
-        <div class="field"><label for="f-home">What should people know about where you&rsquo;re from?</label><textarea id="f-home" name="About their hometown"></textarea><p class="hint">We want to show off your town. Tell us about the places, people and sounds that shaped you.</p></div>
-        <div class="field"><label for="f-drink">Your favorite cocktail, or a non-alcoholic favorite</label><input id="f-drink" name="Favorite drink" type="text"></div>
-        <div class="field"><label for="f-bar">Favorite bartender, if you have one</label><input id="f-bar" name="Favorite bartender" type="text" placeholder="Name and where they work"></div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Making it happen</legend>
-        <div class="field"><label for="f-where">Where will you be between March and October 2027? <span class="req">*</span></label><textarea id="f-where" name="Where they will be" required></textarea><p class="hint">Cities and rough dates. The route is on this page.</p></div>
-        <div class="field">
-          <label for="f-type">What would you like to do? <span class="req">*</span></label>
-          <select id="f-type" name="Session type" required>
-            <option value="">Choose one</option>
-            <option>A booked session on the trailer</option>
-            <option>The open mic</option>
-            <option>Either one</option>
-          </select>
-        </div>
-        <!-- TODO: agreement wording is a plain-language draft, flagged for review. See TODO.md. -->
-        <div class="check">
-          <input id="f-ok" name="Agreement" type="checkbox" value="Yes" required>
-          <label for="f-ok">I agree that Nolan Haines and Sounds So Far can record my set and interview, and post them live and afterward on video platforms and the podcast. I keep ownership of my music. <span class="req">*</span></label>
-        </div>
-        <div class="actions">
-          <button class="btn" type="submit">Send application</button>
-        </div>
-        <div id="apply-status" class="status" role="status" hidden></div>
-      </fieldset>
-    </form>
-  </div>
-</section>
 </main>
-
-<footer>
-  <div class="wrap">© Nolan Haines. Sounds So Far, 2027.</div>
-</footer>
-
-<script src="../scripts/apply-form.js"></script>
-</body>
-</html>
+</Layout>
