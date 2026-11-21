@@ -18,7 +18,11 @@ into index.html or the public page.
 - **Follow-along links.** Social, stream and podcast links aren't on the page
   yet. Once they exist, add a small "Follow along" area — ask before adding
   it, since it's a new section.
-- **Domain name.** Needed before we can connect hosting to a real URL.
+- **Domain name.** Needed before we can connect hosting to a real URL. Also,
+  once it's set, add `site: "https://<domain>"` to `astro.config.mjs` and
+  switch the `og:image`/`twitter:image` tags in `src/pages/index.astro` from
+  relative paths to absolute URLs — some platforms that preview shared links
+  want an absolute image URL.
 - **Route data judgment call:** the mid-August Wyoming stop is listed in
   `data/routes.json` as `"Jackson, WY / Grand Targhee"` with `"type":
   "festival"` and `"tbd": true`, grouping it with Under the Big Sky and ACL
