@@ -239,21 +239,6 @@ h2 {
   border-radius: 6px;
 }
 
-.photo-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  aspect-ratio: 900 / 1125;
-  background: var(--surface);
-  border: 2px dashed var(--muted);
-  border-radius: 6px;
-  color: var(--muted);
-  font-family: "Fraunces", Georgia, serif;
-  padding: 24px;
-}
-
 @media (max-width: 760px) {
   .founder {
     grid-template-columns: 1fr;

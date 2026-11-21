@@ -10,11 +10,6 @@ into the public pages.
 - **Agreement checkbox wording.** The text in the "Making it happen" fieldset
   of `src/pages/apply.astro` is the plain-language draft from the reference
   file. Flagged for legal/wording review before launch.
-- **Photo.** `src/pages/meet-nolan.astro` currently shows a dashed placeholder
-  box instead of a photo. Drop the real image in `src/assets/` (matching the
-  old `nolan.jpg`, roughly 900x1125), swap the `.photo-placeholder` div for
-  Astro's `<Image>` component (`astro:assets`) so it gets optimized
-  automatically.
 - **Follow-along links.** `src/pages/contact.astro` has a "Follow along"
   section but no actual links yet — social, stream and podcast links aren't
   decided. Add them there once they exist.

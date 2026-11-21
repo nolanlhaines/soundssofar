@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import nolanPhoto from "../assets/nolan.jpg";
 ---
 
 <Layout
@@ -10,8 +12,7 @@ import Layout from "../layouts/Layout.astro";
 <section class="alt">
   <div class="wrap founder">
     <figure>
-      <!-- TODO: swap in the real photo. See TODO.md. -->
-      <div class="photo-placeholder" role="img" aria-label="Photo of Nolan Haines with the trailer — coming soon">Photo coming soon</div>
+      <Image src={nolanPhoto} alt="Nolan Haines standing in a mountain meadow" width={900} />
     </figure>
     <div>
     <h2>Meet Nolan</h2>
