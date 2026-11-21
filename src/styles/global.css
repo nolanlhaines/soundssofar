@@ -117,10 +117,9 @@ textarea:focus-visible {
 
 .hero .logo {
   display: block;
-  width: clamp(120px, 20vw, 180px);
-  height: clamp(120px, 20vw, 180px);
-  border-radius: 50%;
-  margin-bottom: 20px;
+  width: clamp(240px, 50vw, 480px);
+  height: auto;
+  margin-bottom: 24px;
 }
 
 .hero .by {
