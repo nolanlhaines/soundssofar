@@ -1,5 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import kingbee from "../assets/gallery-kingbee.jpg";
+import bartonSprings from "../assets/gallery-barton-springs.jpg";
+import sunset from "../assets/gallery-sunset.jpg";
 
 // TODO: placeholder address, see TODO.md
 const CONTACT_EMAIL = "hello@nolanhaines.com";
@@ -22,6 +26,11 @@ const CONTACT_EMAIL = "hello@nolanhaines.com";
   <div class="wrap">
     <h2>Follow along</h2>
     <p class="lead">Links to follow the tour, watch live sets and listen to the podcast are coming soon.</p>
+    <div class="photo-grid">
+      <Image src={kingbee} alt="A live band performing at King Bee" width={500} />
+      <Image src={bartonSprings} alt="Swimmers at Barton Springs in Austin" width={500} />
+      <Image src={sunset} alt="A glowing sunset cloud over a vineyard" width={500} />
+    </div>
   </div>
 </section>
 </main>
