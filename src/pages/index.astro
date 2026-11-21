@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import "../styles/global.css";
 import routes from "../data/routes.json";
+import logo from "../assets/logo.webp";
 
 interface Stop {
   when: string;
@@ -38,6 +40,7 @@ const stops = routes as Stop[];
 <body>
 <header class="hero">
   <div class="wrap">
+    <Image src={logo} alt="Sounds So Far Music Studio" width={88} height={88} class="logo" loading="eager" />
     <p class="by">Nolan Haines presents</p>
     <h1>Sounds So Far</h1>
     <p>A racecar trailer turned studio, rolling from Austin to Austin, March to October 2027. It stops for festivals and finds up-and-coming artists in every town. Each one plays a live set, sits down for a podcast conversation, and gets their favorite cocktail.</p>
