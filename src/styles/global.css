@@ -9,9 +9,9 @@
   --bark: #3A2414;
   --on-bark: #F7E9C9;
   --link: #A0401D;
-  --camo: #333F27;
-  --camo-deep: #232B1A;
-  --on-camo: #F2E8C9;
+  --camo: #8C9B6B;
+  --camo-deep: #333F27;
+  --on-camo: #2E2418;
 }
 
 * {
@@ -195,11 +195,6 @@ section {
 .deep {
   background: var(--camo);
   color: var(--on-camo);
-}
-
-.deep .note {
-  color: var(--on-camo);
-  opacity: 0.85;
 }
 
 h2 {
