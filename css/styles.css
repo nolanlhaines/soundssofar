@@ -1,0 +1,496 @@
+:root {
+  --bg: #F7E9C9;
+  --surface: #EDD4A2;
+  --ink: #2E2418;
+  --muted: #65573F;
+  --moss: #6F8C2E;
+  --clay: #B04A26;
+  --ochre: #E39B1B;
+  --bark: #3A2414;
+  --on-bark: #F7E9C9;
+  --link: #A0401D;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Lora", Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: "Fraunces", Georgia, serif;
+  line-height: 1.1;
+  margin: 0;
+}
+
+a {
+  color: var(--link);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--ochre);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Hero */
+.hero {
+  background: var(--bark);
+  color: var(--on-bark);
+  padding: 72px 0 64px;
+}
+
+.hero .by {
+  font-family: "Fraunces", serif;
+  font-weight: 500;
+  color: var(--ochre);
+  margin: 0 0 18px;
+}
+
+.hero h1 {
+  font-size: clamp(3.2rem, 12vw, 7.5rem);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+}
+
+.hero p {
+  max-width: 33em;
+  margin: 24px 0 0;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 28px;
+  background: var(--ochre);
+  color: #2E2418;
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  padding: 14px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.btn:hover {
+  background: #F2B33A;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 12px 24px;
+}
+
+.btn.ghost:hover {
+  background: var(--bg);
+}
+
+/* Sections */
+section {
+  padding: 68px 0;
+}
+
+.alt {
+  background: var(--surface);
+}
+
+h2 {
+  font-size: clamp(1.9rem, 5vw, 2.7rem);
+  font-weight: 700;
+  margin-bottom: 18px;
+  max-width: 18ch;
+}
+
+.lead {
+  max-width: 36em;
+  margin: 0 0 16px;
+}
+
+/* "A stage that comes to you" cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.grid h3 {
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+  border-top: 6px solid var(--moss);
+  padding-top: 14px;
+}
+
+.grid div:nth-child(2) h3 {
+  border-color: var(--clay);
+}
+
+.grid div:nth-child(3) h3 {
+  border-color: var(--ochre);
+}
+
+.grid p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Meet Nolan */
+.founder {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.founder figure {
+  margin: 0;
+}
+
+.founder img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.photo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  aspect-ratio: 900 / 1125;
+  background: var(--surface);
+  border: 2px dashed var(--muted);
+  border-radius: 6px;
+  color: var(--muted);
+  font-family: "Fraunces", Georgia, serif;
+  padding: 24px;
+}
+
+@media (max-width: 760px) {
+  .founder {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .founder figure {
+    max-width: 420px;
+  }
+}
+
+.quote {
+  margin: 32px 0 0;
+  padding: 4px 0 4px 24px;
+  border-left: 6px solid var(--moss);
+  max-width: 34em;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.quote cite {
+  display: block;
+  margin-top: 12px;
+  font-family: "Lora", Georgia, serif;
+  font-size: 18px;
+  font-style: normal;
+  color: var(--muted);
+}
+
+/* The route */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin: 20px 0 36px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.legend span::before,
+.stop::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 3px solid var(--moss);
+  margin-right: 10px;
+  vertical-align: -1px;
+}
+
+.legend .f::before {
+  background: var(--ochre);
+  border-color: var(--ochre);
+}
+
+.route {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 18px;
+  border-left: 4px solid var(--moss);
+}
+
+.stop {
+  position: relative;
+  padding: 0 0 30px 28px;
+}
+
+.stop::before {
+  position: absolute;
+  left: -29px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  background: var(--bg);
+  margin: 0;
+}
+
+.stop.f::before {
+  background: var(--ochre);
+  border-color: var(--ochre);
+}
+
+.stop .when {
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  color: var(--clay);
+}
+
+.stop h3 {
+  font-size: 1.5rem;
+  margin: 2px 0 4px;
+}
+
+.stop p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 34em;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 15px;
+  border: 2px solid var(--ochre);
+  border-radius: 999px;
+  padding: 0 12px;
+  margin-left: 8px;
+  color: var(--ink);
+  vertical-align: 2px;
+  line-height: 1.5;
+}
+
+.note {
+  border-left: 6px solid var(--clay);
+  padding: 4px 0 4px 20px;
+  max-width: 36em;
+  color: var(--muted);
+}
+
+.route-error {
+  border-left: 6px solid var(--clay);
+  padding: 4px 0 4px 20px;
+  max-width: 36em;
+}
+
+/* Artist application form */
+.apply {
+  margin-top: 36px;
+  max-width: 720px;
+}
+
+.apply-title {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  margin-bottom: 8px;
+}
+
+.apply .hint {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.apply fieldset {
+  border: 0;
+  margin: 0 0 40px;
+  padding: 0;
+  min-width: 0;
+}
+
+.apply legend {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  width: 100%;
+  padding: 14px 0 0;
+  margin-bottom: 12px;
+  border-top: 6px solid var(--moss);
+}
+
+.apply fieldset:nth-of-type(2) legend {
+  border-color: var(--clay);
+}
+
+.apply fieldset:nth-of-type(3) legend {
+  border-color: var(--ochre);
+}
+
+.apply fieldset:nth-of-type(4) legend {
+  border-color: var(--moss);
+}
+
+.field {
+  margin: 0 0 22px;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.req {
+  color: var(--clay);
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field input[type="url"],
+.field input[type="file"],
+.field select,
+.field textarea {
+  display: block;
+  width: 100%;
+  font: inherit;
+  font-size: 18px;
+  line-height: 1.4;
+  padding: 12px 14px;
+  background: var(--bg);
+  color: var(--ink);
+  border: 2px solid #9b8a66;
+  border-radius: 6px;
+}
+
+.field input[type="file"] {
+  padding: 10px 14px;
+}
+
+.field textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0 24px;
+}
+
+.check {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin: 0 0 20px;
+}
+
+.check input {
+  width: 24px;
+  height: 24px;
+  margin: 5px 0 0;
+  accent-color: var(--moss);
+  flex: none;
+}
+
+.field.bad input,
+.field.bad select,
+.field.bad textarea {
+  border-color: #9c2f12;
+}
+
+.check.bad {
+  outline: 2px solid #9c2f12;
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
+.errsum {
+  background: #f9dcc8;
+  color: #5e1d08;
+  border-left: 6px solid #9c2f12;
+  padding: 12px 16px;
+  margin: 0 0 28px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.actions .btn {
+  margin-top: 0;
+}
+
+.status {
+  margin-top: 22px;
+  max-width: 36em;
+}
+
+.status textarea {
+  width: 100%;
+  min-height: 140px;
+  font: inherit;
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 10px;
+  background: var(--bg);
+  color: var(--ink);
+  border: 2px solid #9b8a66;
+  border-radius: 6px;
+}
+
+footer {
+  background: var(--bark);
+  color: var(--on-bark);
+  padding: 40px 0;
+  font-size: 16px;
+}

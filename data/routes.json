@@ -1,0 +1,19 @@
+[
+  { "when": "Mar 15–21", "place": "Austin, TX", "description": "South by Southwest. The tour starts here.", "type": "festival", "tbd": false },
+  { "when": "Mar 22 – Apr 3", "place": "Texas", "description": "San Antonio, Gruene Hall, Luckenbach, Marfa, Alpine and El Paso.", "type": "scouting", "tbd": false },
+  { "when": "Apr 4–12", "place": "New Mexico", "description": "Las Cruces, Albuquerque, Santa Fe and Taos.", "type": "scouting", "tbd": false },
+  { "when": "Apr 13–20", "place": "Arizona", "description": "Flagstaff, Phoenix, Tempe and Tucson.", "type": "scouting", "tbd": false },
+  { "when": "Apr 23–25", "place": "Indio, CA", "description": "Stagecoach Festival. We’re working on a spot for the trailer.", "type": "festival", "tbd": false },
+  { "when": "Apr 26 – May 12", "place": "Southern California", "description": "Los Angeles, San Diego and the scenes around them.", "type": "scouting", "tbd": false },
+  { "when": "May 13–16", "place": "Joshua Tree, CA", "description": "Joshua Tree Music Festival, spring edition.", "type": "festival", "tbd": false },
+  { "when": "May 17 – Jun 16", "place": "California coast, Nevada, Utah", "description": "The Central Coast and Bay Area, then Las Vegas, Salt Lake City and Moab.", "type": "scouting", "tbd": false },
+  { "when": "Jun 17–20", "place": "Telluride, CO", "description": "Telluride Bluegrass Festival.", "type": "festival", "tbd": false },
+  { "when": "Jun 21 – Jul 8", "place": "Utah and Idaho", "description": "Finding artists on the way north.", "type": "scouting", "tbd": false },
+  { "when": "Jul 9–11", "place": "Butte, MT", "description": "Montana Folk Festival, free to attend with six stages.", "type": "festival", "tbd": false },
+  { "when": "Mid-July", "place": "Whitefish, MT", "description": "Under the Big Sky.", "type": "festival", "tbd": true },
+  { "when": "Late July", "place": "Washington", "description": "Spokane and Seattle.", "type": "scouting", "tbd": false },
+  { "when": "Aug 4–8", "place": "Happy Valley, OR", "description": "Pickathon, a festival built around indie and roots discovery.", "type": "festival", "tbd": false },
+  { "when": "Mid-August", "place": "Jackson, WY / Grand Targhee", "description": "Sessions in the shadow of the Tetons.", "type": "festival", "tbd": true },
+  { "when": "September", "place": "Colorado, New Mexico, Texas", "description": "Back through the Front Range and New Mexico, then Texas. Festivals still to come.", "type": "scouting", "tbd": false },
+  { "when": "Early October", "place": "Austin, TX", "description": "Austin City Limits Festival. The finale.", "type": "festival", "tbd": true }
+]
