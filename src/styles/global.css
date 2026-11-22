@@ -66,8 +66,9 @@ textarea:focus-visible {
 
 /* Site navigation */
 .site-nav {
-  background: var(--clay);
-  color: var(--on-bark);
+  background: var(--bg);
+  color: var(--ink);
+  border-bottom: 1px solid rgba(46, 36, 24, 0.12);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -103,18 +104,18 @@ textarea:focus-visible {
 }
 
 .nav-links a {
-  color: var(--on-bark);
+  color: var(--ink);
   text-decoration: none;
   font-size: 16px;
   transition: color 0.15s ease;
 }
 
 .nav-links a:hover {
-  color: var(--ochre);
+  color: var(--link);
 }
 
 .nav-links a[aria-current="page"] {
-  color: var(--ochre);
+  color: var(--link);
   font-weight: 600;
 }
 
@@ -147,7 +148,8 @@ textarea:focus-visible {
 }
 
 .nav-cta[aria-current="page"] {
-  background: var(--on-bark);
+  background: var(--clay);
+  color: var(--on-bark);
 }
 
 /* Hero */
@@ -623,8 +625,8 @@ h2 {
 }
 
 footer {
-  background: var(--clay);
-  color: var(--on-bark);
+  background: var(--surface);
+  color: var(--muted);
   padding: 40px 0;
   font-size: 16px;
 }
