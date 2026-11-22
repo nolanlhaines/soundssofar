@@ -173,7 +173,10 @@ textarea:focus-visible {
 
 .hero .by {
   font-family: "Fraunces", serif;
-  font-weight: 500;
+  font-weight: 700;
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--ochre);
   margin: 0 0 24px;
 }
