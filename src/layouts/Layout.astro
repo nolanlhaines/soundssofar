@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import "../styles/global.css";
+import navLogo from "../assets/logo-badge.webp";
 
 interface Props {
   title: string;
@@ -45,7 +47,9 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 <body>
 <nav class="site-nav">
   <div class="wrap nav-inner">
-    <a class="nav-brand" href="/">Sounds So Far</a>
+    <a class="nav-brand" href="/" aria-label="Sounds So Far — home">
+      <Image src={navLogo} alt="" width={44} height={44} />
+    </a>
     <div class="nav-right">
       <ul class="nav-links">
         {navLinks.map((link) => (
