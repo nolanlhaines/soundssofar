@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import NewsletterForm from "../components/NewsletterForm.astro";
 import heroLogo from "../assets/hero-logo.webp";
 ---
 
@@ -30,6 +31,14 @@ import heroLogo from "../assets/hero-logo.webp";
       <div><h3>Open mic between stops</h3><p>In between the big festivals, the trailer opens up. Walk up, plug in, play.</p></div>
       <div><h3>A talk and a drink</h3><p>Every artist gets a podcast interview, before or after their set, with their favorite cocktail in hand, sometimes mixed by a bartender they love. Every drink also comes in a non-alcoholic version.</p></div>
     </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Stay in the loop</h2>
+    <p class="lead">Get occasional emails about where the trailer's headed next.</p>
+    <NewsletterForm idPrefix="home" />
   </div>
 </section>
 </main>

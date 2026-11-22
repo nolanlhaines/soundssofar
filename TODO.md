@@ -10,9 +10,39 @@ into the public pages.
 - **Agreement checkbox wording.** The text in the "Making it happen" fieldset
   of `src/pages/apply.astro` is the plain-language draft from the reference
   file. Flagged for legal/wording review before launch.
-- **Follow-along links.** `src/pages/contact.astro` has a "Follow along"
-  section but no actual links yet — social, stream and podcast links aren't
-  decided. Add them there once they exist.
+- **Follow-along links.** Both `src/pages/contact.astro` (photo gallery
+  section) and `src/components/SiteFooter.astro` (Instagram/YouTube/Podcast,
+  shown on every page) say "link coming soon" — no actual URLs yet. Give me
+  the real links and I'll wire them in.
+- **Newsletter service.** You already said Kit (ConvertKit) for this. The
+  newsletter form (home page, every page's footer, and `/stay-in-the-loop`)
+  is built and validates, but doesn't actually submit anywhere yet — on
+  submit it just says "sign-ups aren't open yet." Once you confirm Kit (or
+  pick something else — see the chat for pricing on a couple of
+  alternatives), I'll swap in the real embed/API and wire up real signups.
+- **Year: 2027 or 2028?** Everything currently says 2028 (you asked for this
+  explicitly a while back). A later message asked me to change it back to
+  2027, which I did NOT do without checking first — please confirm which is
+  correct.
+- **Privacy/Terms wording.** Both pages (`src/pages/privacy.astro`,
+  `src/pages/terms.astro`) are plain-language drafts I wrote, each with a
+  visible "not reviewed by a lawyer" notice. Needs real legal review before
+  launch — don't treat the current wording as final.
+- **FAQ answers.** I only put questions on `/faq` that I could answer
+  honestly from content already on the site. A few common questions I did
+  NOT add because I'd have to guess the answer (flagging here instead of
+  guessing on the public page):
+  - Is the open mic free to attend?
+  - Is there a minimum/maximum set length?
+  - Do you cover any travel costs for artists?
+  Let me know the answers and I'll add them.
+- **Route data used for the calendar/banner.** `src/data/routes.json` now
+  has `start`/`end` ISO dates per stop, used by the "Next stop" banner and
+  the `.ics` calendar download. For the fuzzy entries ("Mid-July", "Late
+  July", "September", "Early October"), I picked a reasonable specific date
+  range myself since there's no exact date to parse — the displayed "when"
+  text is unchanged, but the invisible date used for sorting/the calendar is
+  my estimate, not a confirmed date. Worth a glance once real dates land.
 - **Domain name.** Needed before we can connect hosting to a real URL. Also,
   once it's set, add `site: "https://<domain>"` to `astro.config.mjs` and
   switch the `og:image`/`twitter:image` tags in `src/layouts/Layout.astro`

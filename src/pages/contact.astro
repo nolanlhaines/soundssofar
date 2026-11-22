@@ -50,6 +50,16 @@ const CONTACT_EMAIL = "hello@nolanhaines.com";
         <div class="field"><label for="c-name">Name <span class="req">*</span></label><input id="c-name" name="Name" type="text" autocomplete="name" required></div>
         <div class="field"><label for="c-email">Email <span class="req">*</span></label><input id="c-email" name="Email" type="email" autocomplete="email" required></div>
       </div>
+      <div class="field">
+        <label for="c-topic">Topic <span class="req">*</span></label>
+        <select id="c-topic" name="Topic" required>
+          <option value="">Choose one</option>
+          <option>Artist</option>
+          <option>Venue or festival</option>
+          <option>Press</option>
+          <option>Other</option>
+        </select>
+      </div>
       <div class="field"><label for="c-message">Message <span class="req">*</span></label><textarea id="c-message" name="Message" required></textarea></div>
 
       <div class="actions">

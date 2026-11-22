@@ -11,7 +11,7 @@
 
   function fieldProblems() {
     var problems = [];
-    form.querySelectorAll("input,textarea").forEach(function (el) {
+    form.querySelectorAll("input,select,textarea").forEach(function (el) {
       if (el.name === "_gotcha" || !el.required) return;
       var ok = el.value.trim() !== "";
       if (ok && el.type === "email") ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value.trim());

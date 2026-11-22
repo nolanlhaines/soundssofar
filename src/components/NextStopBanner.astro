@@ -1,0 +1,29 @@
+---
+import routes from "../data/routes.json";
+
+interface Stop {
+  when: string;
+  place: string;
+  description: string;
+  type: "festival" | "scouting";
+  tbd: boolean;
+  start: string;
+  end: string;
+}
+
+const stops = routes as Stop[];
+const today = new Date().toISOString().slice(0, 10);
+const next = stops.find((stop) => stop.end >= today);
+---
+
+{next && (
+  <div class="next-stop">
+    <div class="wrap next-stop-inner">
+      <span>
+        Next stop: <strong>{next.place}</strong> &mdash; {next.when}
+        {next.tbd && " (dates to be announced)"}
+      </span>
+      <a href="/route">See the full route &rarr;</a>
+    </div>
+  </div>
+)}

@@ -1,0 +1,44 @@
+---
+interface Props {
+  idPrefix: string;
+}
+const { idPrefix } = Astro.props;
+---
+
+<form class="newsletter-form" id={`newsletter-${idPrefix}`} novalidate>
+  <div class="newsletter-fields">
+    <div class="field">
+      <label for={`nl-email-${idPrefix}`}>Email <span class="req">*</span></label>
+      <input id={`nl-email-${idPrefix}`} name="Email" type="email" autocomplete="email" required>
+    </div>
+    <div class="field">
+      <label for={`nl-city-${idPrefix}`}>City (optional)</label>
+      <input id={`nl-city-${idPrefix}`} name="City" type="text" placeholder="So we know if the trailer's headed your way">
+    </div>
+  </div>
+  <p class="hint newsletter-consent">
+    By signing up, you agree to get occasional emails about the tour, under our <a href="/privacy">privacy policy</a> and <a href="/terms">terms</a>. Unsubscribe anytime, no hard feelings.
+  </p>
+  <div class="actions">
+    <button class="btn" type="submit">Sign up</button>
+  </div>
+  <div class="status newsletter-status" role="status" hidden></div>
+</form>
+
+<script define:vars={{ idPrefix }}>
+  (function () {
+    var form = document.getElementById("newsletter-" + idPrefix);
+    if (!form) return;
+    var status = form.querySelector(".newsletter-status");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = form.elements["Email"];
+      if (!email.value.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim())) {
+        email.focus();
+        return;
+      }
+      status.textContent = "Sign-ups aren't open quite yet — check back soon.";
+      status.hidden = false;
+    });
+  })();
+</script>

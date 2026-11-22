@@ -1,0 +1,32 @@
+---
+import NewsletterForm from "./NewsletterForm.astro";
+---
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-col">
+      <h3 class="footer-heading">Stay in the loop</h3>
+      <NewsletterForm idPrefix="footer" />
+    </div>
+
+    <div class="footer-col">
+      <h3 class="footer-heading">Follow along</h3>
+      <ul class="footer-follow">
+        <li>Instagram <span class="footer-todo">(link coming soon)</span></li>
+        <li>YouTube <span class="footer-todo">(link coming soon)</span></li>
+        <li>Podcast <span class="footer-todo">(link coming soon)</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <p>© Nolan Haines. Sounds So Far, 2028.</p>
+    <nav class="footer-links" aria-label="Legal and more">
+      <a href="/stay-in-the-loop">Stay in the Loop</a>
+      <a href="/watch-and-listen">Watch and Listen</a>
+      <a href="/faq">FAQ</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </nav>
+  </div>
+</footer>

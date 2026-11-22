@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const faqs = [
+  {
+    q: "What is Sounds So Far?",
+    a: "A racecar trailer rebuilt as a traveling studio, with a garage door on the side that slides up and becomes a small stage. Nolan Haines tours it from Austin to Austin, March to October 2028, stopping at festivals and finding up-and-coming artists along the way.",
+  },
+  {
+    q: "Where is the trailer, and when?",
+    a: "See the full route for every stop and date, including which are confirmed and which are still to be announced.",
+    link: { href: "/route", label: "The Route" },
+  },
+  {
+    q: "Who can apply to play?",
+    a: "All ages and all genres are welcome. The application asks about you, your music, your story, and where you'll be between March and October 2028.",
+    link: { href: "/apply", label: "Artist application" },
+  },
+  {
+    q: "What do artists get?",
+    a: "A live set (recorded and streamed), a podcast conversation about their back story and hometown, and their favorite drink — with a non-alcoholic version always on offer.",
+  },
+  {
+    q: "Is there an age requirement?",
+    a: "No — all ages are welcome. Artists under 18 need a parent or guardian to agree on the application.",
+  },
+  {
+    q: "Do I need to apply, or can I just show up?",
+    a: "Both work. Between festival stops, the trailer opens up as a walk-up open mic. For a booked session on the trailer, use the artist application.",
+    link: { href: "/apply", label: "Artist application" },
+  },
+  {
+    q: "How do I follow along?",
+    a: "Sign up for occasional email updates, or check the Follow along links in the footer once they're live.",
+    link: { href: "/stay-in-the-loop", label: "Stay in the Loop" },
+  },
+];
+---
+
+<Layout
+  title="FAQ | Sounds So Far"
+  description="Common questions about Sounds So Far, the tour, and applying to play."
+>
+<main>
+<section>
+  <div class="wrap">
+    <h2>FAQ</h2>
+    <div class="faq-list">
+      {faqs.map((item) => (
+        <div class="faq-item">
+          <h3>{item.q}</h3>
+          <p>{item.a} {item.link && <a href={item.link.href}>{item.link.label}</a>}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+</main>
+</Layout>

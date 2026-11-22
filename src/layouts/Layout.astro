@@ -2,6 +2,8 @@
 import { Image } from "astro:assets";
 import "../styles/global.css";
 import navLogo from "../assets/wordmark.png";
+import NextStopBanner from "../components/NextStopBanner.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 
 interface Props {
   title: string;
@@ -15,6 +17,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/meet-nolan", label: "Meet Nolan" },
   { href: "/route", label: "The Route" },
+  { href: "/watch-and-listen", label: "Watch & Listen" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -45,6 +48,7 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+<NextStopBanner />
 <nav class="site-nav">
   <div class="wrap nav-inner">
     <a class="nav-brand" href="/" aria-label="Sounds So Far — home">
@@ -65,8 +69,6 @@ const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 
 <slot />
 
-<footer>
-  <div class="wrap">© Nolan Haines. Sounds So Far, 2028.</div>
-</footer>
+<SiteFooter />
 </body>
 </html>
