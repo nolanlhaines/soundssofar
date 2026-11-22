@@ -24,7 +24,39 @@ const CONTACT_EMAIL = "hello@nolanhaines.com";
   <div class="wrap">
     <h2>Contact</h2>
     <p class="lead">Artists should use the <a href="/apply">artist application</a> instead — this is for press, festivals, and everyone else.</p>
-    <p class="lead"><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+    <p class="lead">Send a message below, or email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> directly.</p>
+
+    <form
+      id="contact-form"
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="_gotcha"
+      action="/thanks"
+      class="apply"
+      novalidate
+      aria-labelledby="contact-form-title"
+    >
+      <h3 id="contact-form-title" class="apply-title">Send a message</h3>
+      <div id="contact-errors" class="errsum" role="alert" tabindex="-1" hidden></div>
+
+      <!-- Honeypot: hidden from sighted users and screen readers; real visitors never fill this in. -->
+      <div class="field visually-hidden" aria-hidden="true">
+        <label for="c-hp">Leave this field blank</label>
+        <input id="c-hp" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="two">
+        <div class="field"><label for="c-name">Name <span class="req">*</span></label><input id="c-name" name="Name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="c-email">Email <span class="req">*</span></label><input id="c-email" name="Email" type="email" autocomplete="email" required></div>
+      </div>
+      <div class="field"><label for="c-message">Message <span class="req">*</span></label><textarea id="c-message" name="Message" required></textarea></div>
+
+      <div class="actions">
+        <button class="btn" type="submit">Send message</button>
+      </div>
+      <div id="contact-status" class="status" role="status" hidden></div>
+    </form>
   </div>
 </section>
 
@@ -46,4 +78,5 @@ const CONTACT_EMAIL = "hello@nolanhaines.com";
   </div>
 </section>
 </main>
+<script src="../scripts/contact-form.js"></script>
 </Layout>

@@ -42,9 +42,12 @@ into the public pages.
      publish directory are already in `netlify.toml`, so it should
      auto-detect).
   2. After the first deploy, go to Site settings → Forms and turn on form
-     detection if it isn't already (Netlify scans the built static HTML for
-     the `apply` form and should pick it up automatically).
-  3. Add a real notification email under Forms → Form notifications.
-  4. Submit a real test application once live and confirm it shows up in
-     the Netlify dashboard and the notification email arrives.
+     detection if it isn't already (Netlify scans the built static HTML and
+     should pick up both the `apply` and `contact` forms automatically).
+  3. Add a real notification email under Forms → Form notifications (check
+     whether Netlify lets you set a different one per form, since `apply`
+     and `contact` probably shouldn't notify the same inbox the same way).
+  4. Submit a real test application AND a real test contact message once
+     live, and confirm both show up in the Netlify dashboard and trigger
+     notifications.
 - Connecting the domain once chosen.
