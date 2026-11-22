@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import logo from "../assets/logo-main.png";
+import heroScene from "../assets/hero-scene.webp";
 ---
 
 <Layout
@@ -12,7 +12,7 @@ import logo from "../assets/logo-main.png";
   <div class="wrap">
     <p class="by">Nolan Haines presents</p>
     <h1 class="visually-hidden">Sounds So Far</h1>
-    <Image src={logo} alt="Sounds So Far Music Studio" width={900} class="logo" loading="eager" />
+    <Image src={heroScene} alt="Sounds So Far Music Studio" width={900} class="logo" loading="eager" />
     <p>A racecar trailer turned studio, rollin&rsquo; from state to state, starting in Austin, Texas for South by Southwest and ending in Austin for ACL Festival, March to October 2028. It stops for festivals and finds up-and-coming artists in every town. Each one plays a live set, sits down for a podcast conversation, and gets their favorite cocktail.</p>
     <a class="btn" href="/apply">Play on the trailer</a>
   </div>
