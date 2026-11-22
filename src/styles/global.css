@@ -115,6 +115,38 @@ textarea:focus-visible {
   font-weight: 600;
 }
 
+.nav-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 28px;
+}
+
+.nav-cta {
+  display: inline-block;
+  background: var(--ochre);
+  color: #2E2418;
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.nav-cta:hover {
+  background: #F2B33A;
+}
+
+.nav-cta:active {
+  transform: scale(0.96);
+}
+
+.nav-cta[aria-current="page"] {
+  background: var(--on-bark);
+}
+
 /* Hero */
 .hero {
   background: var(--bark);
@@ -260,16 +292,39 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 16px;
-  margin-top: 28px;
+  gap: 36px 28px;
+  margin-top: 48px;
+  padding: 12px;
 }
 
-.photo-strip img {
+.polaroid {
+  margin: 0;
+  background: #fdfbf5;
+  padding: 10px 10px 28px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transform: rotate(var(--tilt, -3deg));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.polaroid:nth-child(5n+1) { --tilt: -4deg; }
+.polaroid:nth-child(5n+2) { --tilt: 3deg; }
+.polaroid:nth-child(5n+3) { --tilt: -2deg; }
+.polaroid:nth-child(5n+4) { --tilt: 4deg; }
+.polaroid:nth-child(5n+5) { --tilt: -3deg; }
+
+.polaroid:hover,
+.polaroid:focus-within {
+  transform: rotate(0deg) scale(1.06);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  position: relative;
+}
+
+.polaroid img {
   display: block;
-  height: clamp(140px, 32vw, 320px);
-  width: auto;
-  max-width: 100%;
-  border-radius: 6px;
+  width: clamp(120px, 28vw, 220px);
+  height: clamp(120px, 28vw, 220px);
+  object-fit: cover;
 }
 
 @media (max-width: 760px) {
