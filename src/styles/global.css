@@ -66,7 +66,7 @@ textarea:focus-visible {
 
 /* Site navigation */
 .site-nav {
-  background: var(--bark);
+  background: var(--clay);
   color: var(--on-bark);
   position: sticky;
   top: 0;
@@ -623,7 +623,7 @@ h2 {
 }
 
 footer {
-  background: var(--bark);
+  background: var(--clay);
   color: var(--on-bark);
   padding: 40px 0;
   font-size: 16px;
