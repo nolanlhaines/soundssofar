@@ -1,29 +1,42 @@
 ---
 interface Props {
   idPrefix: string;
+  compact?: boolean;
 }
-const { idPrefix } = Astro.props;
+const { idPrefix, compact = false } = Astro.props;
 ---
 
-<form class="newsletter-form" id={`newsletter-${idPrefix}`} novalidate>
-  <div class="newsletter-fields">
-    <div class="field">
-      <label for={`nl-email-${idPrefix}`}>Email <span class="req">*</span></label>
-      <input id={`nl-email-${idPrefix}`} name="Email" type="email" autocomplete="email" required>
-    </div>
-    <div class="field">
-      <label for={`nl-city-${idPrefix}`}>City (optional)</label>
-      <input id={`nl-city-${idPrefix}`} name="City" type="text" placeholder="So we know if the trailer's headed your way">
-    </div>
-  </div>
-  <p class="hint newsletter-consent">
-    By signing up, you agree to get occasional emails about the tour, under our <a href="/privacy">privacy policy</a> and <a href="/terms">terms</a>. Unsubscribe anytime, no hard feelings.
-  </p>
-  <div class="actions">
+{compact ? (
+  <form class="newsletter-form newsletter-compact" id={`newsletter-${idPrefix}`} novalidate>
+    <label for={`nl-email-${idPrefix}`} class="visually-hidden">Email</label>
+    <input id={`nl-email-${idPrefix}`} name="Email" type="email" autocomplete="email" placeholder="Your email" required>
     <button class="btn" type="submit">Sign up</button>
-  </div>
-  <div class="status newsletter-status" role="status" hidden></div>
-</form>
+    <p class="newsletter-consent-compact">
+      <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; unsubscribe anytime.
+    </p>
+    <div class="status newsletter-status" role="status" hidden></div>
+  </form>
+) : (
+  <form class="newsletter-form" id={`newsletter-${idPrefix}`} novalidate>
+    <div class="newsletter-fields">
+      <div class="field">
+        <label for={`nl-email-${idPrefix}`}>Email <span class="req">*</span></label>
+        <input id={`nl-email-${idPrefix}`} name="Email" type="email" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for={`nl-city-${idPrefix}`}>City (optional)</label>
+        <input id={`nl-city-${idPrefix}`} name="City" type="text" placeholder="So we know if the trailer's headed your way">
+      </div>
+    </div>
+    <p class="hint newsletter-consent">
+      By signing up, you agree to get occasional emails about the tour, under our <a href="/privacy">privacy policy</a> and <a href="/terms">terms</a>. Unsubscribe anytime, no hard feelings.
+    </p>
+    <div class="actions">
+      <button class="btn" type="submit">Sign up</button>
+    </div>
+    <div class="status newsletter-status" role="status" hidden></div>
+  </form>
+)}
 
 <script define:vars={{ idPrefix }}>
   (function () {

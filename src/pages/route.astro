@@ -28,7 +28,7 @@ const stops = routes as Stop[];
       {stops.map((stop) => (
         <li class={`stop${stop.type === "festival" ? " f" : ""}`}>
           <div class="when">{stop.when}</div>
-          <h3>{stop.place}{stop.tbd && <span class="tag">Dates to be announced</span>}</h3>
+          <h3>{stop.place}{stop.tbd && stop.when !== "Dates to be announced" && <span class="tag">Dates to be announced</span>}</h3>
           <p>{stop.description}</p>
         </li>
       ))}

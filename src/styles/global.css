@@ -12,6 +12,9 @@
   --camo: #8C9B6B;
   --camo-deep: #333F27;
   --on-camo: #2E2418;
+  --teal: #1C675A;
+  --teal-light: #5BB3A3;
+  --on-teal: #F7E9C9;
 }
 
 * {
@@ -247,6 +250,38 @@ section {
 .deep {
   background: var(--camo);
   color: var(--on-camo);
+}
+
+.route-preview {
+  background: var(--bark);
+  color: var(--on-bark);
+}
+
+.route-preview .lead {
+  color: var(--on-bark);
+  opacity: 0.85;
+}
+
+.route-preview-list {
+  list-style: none;
+  margin: 28px 0 32px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+}
+
+.route-preview-when {
+  display: block;
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+  color: var(--teal-light);
+  font-size: 1.1rem;
+}
+
+.route-preview-place {
+  display: block;
+  font-size: 1.2rem;
 }
 
 h2 {
@@ -664,44 +699,17 @@ footer {
 }
 
 /* Footer */
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 40px;
-  padding-bottom: 32px;
-  margin-bottom: 32px;
-  border-bottom: 1px solid rgba(46, 36, 24, 0.15);
-}
-
-.footer-heading {
-  font-size: 1.2rem;
-  margin-bottom: 14px;
-}
-
-.footer-follow {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.footer-todo {
-  color: var(--muted);
-  font-size: 14px;
-}
-
 .footer-bottom {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 24px;
+  gap: 16px 32px;
   align-items: center;
   justify-content: space-between;
 }
 
 .footer-bottom p {
   margin: 0;
+  flex: none;
 }
 
 .footer-links {
@@ -763,4 +771,45 @@ footer {
 
 .newsletter-form .actions {
   margin-bottom: 8px;
+}
+
+.newsletter-compact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+}
+
+.newsletter-compact input {
+  font: inherit;
+  font-size: 15px;
+  padding: 8px 12px;
+  background: var(--bg);
+  color: var(--ink);
+  border: 2px solid #9b8a66;
+  border-radius: 6px;
+  width: 200px;
+  max-width: 100%;
+}
+
+.newsletter-compact .btn {
+  margin-top: 0;
+  padding: 8px 18px;
+  font-size: 15px;
+}
+
+.newsletter-consent-compact {
+  flex-basis: 100%;
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.newsletter-consent-compact a {
+  color: var(--muted);
+}
+
+.newsletter-compact .newsletter-status {
+  flex-basis: 100%;
+  margin-top: 4px;
 }

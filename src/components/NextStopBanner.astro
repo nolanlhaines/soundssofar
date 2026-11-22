@@ -21,7 +21,6 @@ const next = stops.find((stop) => stop.end >= today);
     <div class="wrap next-stop-inner">
       <span>
         Next stop: <strong>{next.place}</strong> &mdash; {next.when}
-        {next.tbd && " (dates to be announced)"}
       </span>
       <a href="/route">See the full route &rarr;</a>
     </div>
