@@ -154,11 +154,15 @@ textarea:focus-visible {
   padding: 72px 0 64px;
 }
 
+.hero .wrap {
+  text-align: center;
+}
+
 .hero .logo {
   display: block;
   width: clamp(260px, 55vw, 560px);
   height: auto;
-  margin-bottom: 24px;
+  margin: 0 auto 24px;
 }
 
 .hero .by {
@@ -176,7 +180,7 @@ textarea:focus-visible {
 
 .hero p {
   max-width: 33em;
-  margin: 24px 0 0;
+  margin: 24px auto 0;
 }
 
 .btn {
