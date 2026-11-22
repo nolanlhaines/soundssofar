@@ -89,9 +89,8 @@ textarea:focus-visible {
 
 .nav-brand img {
   display: block;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  height: 34px;
+  width: auto;
 }
 
 .nav-links {
