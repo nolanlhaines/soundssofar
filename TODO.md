@@ -44,9 +44,9 @@ into the public pages.
   2. After the first deploy, go to Site settings → Forms and turn on form
      detection if it isn't already (Netlify scans the built static HTML and
      should pick up both the `apply` and `contact` forms automatically).
-  3. Add a real notification email under Forms → Form notifications (check
-     whether Netlify lets you set a different one per form, since `apply`
-     and `contact` probably shouldn't notify the same inbox the same way).
+  3. Add separate notification emails per form under Forms → Form
+     notifications — one for `apply`, a different one for `contact`
+     (decided: these shouldn't land in the same inbox the same way).
   4. Submit a real test application AND a real test contact message once
      live, and confirm both show up in the Netlify dashboard and trigger
      notifications.
